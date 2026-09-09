@@ -9,12 +9,12 @@ CREATE TABLE layoffs_raw (
   stage VARCHAR(50),
   country VARCHAR(50),
   funds_raised_millions NUMERIC(10,3)
-)
+);
 
 -- After importing data in Postgre, make a similar placeholder table for testing purposes (making sure we aren't changing the ACTUAL dataset while exploring)
-CREATE TABLE layoffs_test (LIKE layoffs_raw INCLUDING ALL)
+CREATE TABLE layoffs_test (LIKE layoffs_raw INCLUDING ALL);
 
 -- Copy over data, this also gives the opportunity to rearrange columns if need be
 INSERT INTO layoffs_test (company, location, industry, total_laid_off, percentage_laid_off, date, stage, country, funds_raised_millions)
 SELECT company, location, industry, total_laid_off, percentage_laid_off, date, stage, country, funds_raised_millions
-FROM layoffs_raw
+FROM layoffs_raw;
