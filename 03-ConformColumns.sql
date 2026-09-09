@@ -45,3 +45,8 @@ ORDER BY funds_raised_millions DESC;
 -- Removing 1 degree of accuracy from a 3 out of over 2k shouldn't have a massive impact for this project's purposes. Useful to remove in the testing dataset, but for note in the raw import. Numeric with 9 total digits (7 left, 2 right) should suffice.
 ALTER TABLE layoffs_test
 ALTER COLUMN funds_raised_millions TYPE NUMERIC(9,2);
+
+-- Date looks already good due to initial setup, nulls are taken note of in this and other columns. Also note timeline (March 2020 - March 2023)
+SELECT DISTINCT date 
+FROM layoffs_test
+ORDER BY date DESC;
