@@ -46,3 +46,6 @@ WHERE dupl_count > 1;
 DELETE
 FROM layoffs_test
 WHERE dupl_count > 1;
+
+-- Remove the duplicate count column
+ALTER TABLE layoffs_test DROP COLUMN dupl_count;
